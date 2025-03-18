@@ -340,17 +340,22 @@ section {
   flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
+  align-items: center;
 }
 
 article {
   display: flex;
-  width: 10rem;
-  justify-content: space-around;
-  gap: 0.5rem;
+  align-items: center; /* Centers tick mark and text */
+  gap: 1rem; /* Better spacing */
+  width: 12rem; /* Increases width for consistent text alignment */
 }
 
 article .icon {
   cursor: default;
+}
+
+article div {
+  min-width: 8rem; /* Prevents text from wrapping unexpectedly */
 }
 
 /* PROJECTS SECTION */
