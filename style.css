@@ -23,7 +23,7 @@ p {
 
 a,
 .btn {
-  transition: all 5000ms ease;
+  transition: background-color 5.0s ease, color 5.0s ease, transform 5.0s ease;
 }
 
 /* DESKTOP NAV */

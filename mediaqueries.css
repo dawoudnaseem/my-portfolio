@@ -100,4 +100,7 @@
   .text-container {
     text-align: justify;
   }
+  .contact-info-upper-container {
+    gap: 25px;
+  }
 }
