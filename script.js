@@ -42,5 +42,16 @@ function toggleMenu() {
       smoothScroll(targetId);
     });
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".project-card").forEach((project) => {
+      project.addEventListener("click", function () {
+        const projectTitle = this.querySelector(".project-title").innerText;
+        const projectPage = projectTitle.toLowerCase().replace(/\s+/g, "-") + ".html";
+        window.location.href = projectPage;
+      });
+    });
+  });
+  
   
 }
