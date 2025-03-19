@@ -7,42 +7,57 @@ function toggleMenu() {
 
 function smoothScroll(targetId) {
   const target = document.getElementById(targetId);
+  if (!target) return; // Prevent errors if the element is missing
+
   const targetPosition = target.getBoundingClientRect().top + window.scrollY;
   const startPosition = window.scrollY;
   const distance = targetPosition - startPosition;
-  const duration = 1000; // Adjust scrolling speed (1000ms = 1s)
+  const duration = 250; // Fastest scroll speed (300ms = 0.3s)
   let startTime = null;
-  
+
   function animationStep(currentTime) {
-    if (!startTime) startTime = currentTime;
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1); // Normalize progress (0 to 1)
-  
-    // Custom smooth ease-in-out function
-    const easeInOut = progress < 0.5
-      ? 4 * progress ** 3
-      : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-  
-    window.scrollTo(0, startPosition + distance * easeInOut);
-  
-    if (elapsedTime < duration) {
+      if (!startTime) startTime = currentTime;
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1); // Normalize progress (0 to 1)
+
+      // Faster start, snappier end
+      const easeInOut = progress < 0.5
+          ? 2 * progress ** 3
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+      window.scrollTo(0, startPosition + distance * easeInOut);
+
+      if (elapsedTime < duration) {
+          requestAnimationFrame(animationStep);
+      } else {
+          window.scrollTo(0, targetPosition); // Ensure exact landing position
+      }
+  }
+
+  // 🚀 Force repaint to prevent browser lag
+  requestAnimationFrame(() => {
       requestAnimationFrame(animationStep);
-    } else {
-      window.scrollTo(0, targetPosition); // Ensure it lands exactly on target
-    }
-  }
-  
-    requestAnimationFrame(animationStep);
-  }
+  });
+}
+
+
   
 // Attach smooth scrolling to navbar links
 document.querySelectorAll('.nav-links a').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    smoothScroll(targetId);
-  });
+      e.preventDefault();
+      e.stopPropagation(); // 🔥 Prevent event bubbling delays
+
+      const targetId = this.getAttribute('href').substring(1);
+
+      // 🚀 Ensure immediate execution
+      setTimeout(() => {
+          smoothScroll(targetId);
+      }, 0);
+  }, { passive: false }); // 🔥 Ensures event is fully processed
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".project-card").forEach((project) => {
