@@ -23,8 +23,13 @@ p {
 
 a,
 .btn {
-  transition: background-color 5.0s ease, color 5.0s ease, transform 5.0s ease;
+  transition: all 5000ms ease;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* DESKTOP NAV */
 
