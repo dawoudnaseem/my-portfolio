@@ -68,4 +68,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+const cursorText = document.getElementById("cursorTextPath");
+const clickableTags = ["A", "BUTTON", "IMG", "INPUT", "TEXTAREA"];
+
+document.addEventListener("mouseover", (e) => {
+  const tag = e.target.tagName;
+  if (clickableTags.includes(tag) || e.target.onclick) {
+    cursorText.textContent = "CLICK HERE • CLICK HERE •";
+  } else {
+    cursorText.textContent = "S C R O L L  •  D O W N  •  S C R O L L  •  D O W N •";
+  }
+});
+
+document.addEventListener("mousemove", (e) => {
+  const cursorWrapper = document.getElementById("custom-cursor-wrapper");
+  cursorWrapper.style.top = e.clientY + "px";
+  cursorWrapper.style.left = e.clientX + "px";
+});
+
+
   
