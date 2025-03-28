@@ -506,4 +506,47 @@ footer p {
   letter-spacing: 2px;
 }
 
+/* Glow and Grow */
+
+#custom-cursor-wrapper.hovering .circle-bg {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  transition: all 0.25s ease;
+}
+
+/* Ripple Effect */
+
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.15);
+  animation: ripple-effect 0.4s ease-out;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+
+@keyframes ripple-effect {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #custom-cursor-wrapper {
+    display: none;
+  }
+}
+
+
+
 

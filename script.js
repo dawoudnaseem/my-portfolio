@@ -73,19 +73,42 @@ const cursorText = document.getElementById("cursorTextPath");
 const clickableTags = ["A", "BUTTON", "IMG", "INPUT", "TEXTAREA"];
 
 document.addEventListener("mouseover", (e) => {
-  const tag = e.target.tagName;
-  if (clickableTags.includes(tag) || e.target.onclick) {
+  const cursorWrapper = document.getElementById("custom-cursor-wrapper");
+  const projectCard = e.target.closest(".project-card");
+
+  if (
+    ["A", "BUTTON", "IMG", "INPUT", "TEXTAREA"].includes(e.target.tagName) ||
+    e.target.onclick ||
+    projectCard
+  ) {
     cursorText.textContent = "CLICK HERE • CLICK HERE •";
+    cursorWrapper.classList.add("hovering");
   } else {
-    cursorText.textContent = "S C R O L L  •  D O W N  •  S C R O L L  •  D O W N •";
+    cursorText.textContent = "SCROLL DOWN • SCROLL DOWN •";
+    cursorWrapper.classList.remove("hovering");
   }
 });
+
+
+
 
 document.addEventListener("mousemove", (e) => {
   const cursorWrapper = document.getElementById("custom-cursor-wrapper");
   cursorWrapper.style.top = e.clientY + "px";
   cursorWrapper.style.left = e.clientX + "px";
 });
+
+document.addEventListener("click", (e) => {
+  const ripple = document.createElement("div");
+  ripple.className = "ripple";
+  const cursorWrapper = document.getElementById("custom-cursor-wrapper");
+  cursorWrapper.appendChild(ripple);
+
+  setTimeout(() => {
+    ripple.remove();
+  }, 400);
+});
+
 
 
   
