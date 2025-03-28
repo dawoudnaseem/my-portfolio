@@ -453,3 +453,57 @@ footer p {
   cursor: pointer;
 }
 
+#custom-cursor-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+#custom-cursor {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(100, 100, 100, 0.08);
+  z-index: 1;
+}
+
+#custom-cursor svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+  transform-origin: center;
+  animation: rotateText 6s linear infinite;
+}
+
+@keyframes rotateText {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#custom-cursor text {
+  fill: black;
+  font-size: 15.3px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
