@@ -531,8 +531,6 @@ footer p {
   pointer-events: none;
 }
 
-
-
 @keyframes ripple-effect {
   0% {
     transform: translate(-50%, -50%) scale(0.5);
@@ -546,12 +544,32 @@ footer p {
   }
 }
 
-
-
+/* Hide the Cursor for Phones and Tablets */
 @media (max-width: 768px) {
   #custom-cursor-wrapper {
     display: none;
   }
+}
+
+/* AUTOSHOW ANIMATION (Appear and Dissapear WHen Scrolling */
+
+.autoshow {
+
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 5%);
+
+}
+
+@keyframes autoShowAnimation {
+
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  } to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
 }
 
 
