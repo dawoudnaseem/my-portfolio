@@ -69,45 +69,39 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const cursorText = document.getElementById("cursorTextPath");
-const clickableTags = ["A", "BUTTON", "IMG", "INPUT", "TEXTAREA"];
-
-document.addEventListener("mouseover", (e) => {
+document.addEventListener("DOMContentLoaded", () => {
   const cursorWrapper = document.getElementById("custom-cursor-wrapper");
-  const projectCard = e.target.closest(".project-card");
+  const cursorText = document.getElementById("cursorTextPath");
+  const clickableTags = ["A", "BUTTON", "IMG", "INPUT", "TEXTAREA"];
 
-  if (
-    ["A", "BUTTON", "IMG", "INPUT", "TEXTAREA"].includes(e.target.tagName) ||
-    e.target.onclick ||
-    projectCard
-  ) {
-    cursorText.textContent = "CLICK HERE • CLICK HERE •";
-    cursorWrapper.classList.add("hovering");
-  } else {
-    cursorText.textContent = "SCROLL DOWN • SCROLL DOWN •";
-    cursorWrapper.classList.remove("hovering");
-  }
+  document.addEventListener("mousemove", (e) => {
+    cursorWrapper.style.top = `${e.clientY}px`;
+    cursorWrapper.style.left = `${e.clientX}px`;
+  });
+
+  document.addEventListener("mouseover", (e) => {
+    const tag = e.target.tagName;
+    const isClickableTag = clickableTags.includes(tag);
+    const isClickableProjectCard = e.target.closest(".project-card");
+
+    if (isClickableTag || e.target.onclick || isClickableProjectCard) {
+      cursorText.textContent = "CLICK HERE • CLICK HERE •";
+      cursorWrapper.classList.add("hovering");
+    } else {
+      cursorText.textContent = "SCROLL DOWN • SCROLL DOWN •";
+      cursorWrapper.classList.remove("hovering");
+    }
+  });
+
+  document.addEventListener("click", () => {
+    const ripple = document.createElement("div");
+    ripple.className = "ripple";
+    cursorWrapper.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 400);
+  });
 });
 
 
-
-
-document.addEventListener("mousemove", (e) => {
-  const cursorWrapper = document.getElementById("custom-cursor-wrapper");
-  cursorWrapper.style.top = e.clientY + "px";
-  cursorWrapper.style.left = e.clientX + "px";
-});
-
-document.addEventListener("click", (e) => {
-  const ripple = document.createElement("div");
-  ripple.className = "ripple";
-  const cursorWrapper = document.getElementById("custom-cursor-wrapper");
-  cursorWrapper.appendChild(ripple);
-
-  setTimeout(() => {
-    ripple.remove();
-  }, 400);
-});
 
 
 
