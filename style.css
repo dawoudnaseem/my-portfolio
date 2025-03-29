@@ -500,10 +500,11 @@ footer p {
 
 #custom-cursor text {
   fill: black;
-  font-size: 15.3px;
+  font-size: 15px;
+  font-weight: bold;
   font-family: Arial, sans-serif;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.7px;
 }
 
 /* Glow and Grow */
@@ -520,17 +521,14 @@ footer p {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60px;
-  height: 60px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.15);
   transform: translate(-50%, -50%);
   z-index: 3;
   animation: ripple-effect 0.4s ease-out;
   pointer-events: none;
-
-  /* 💡 Here's the glow */
-  box-shadow: 0 0 20px rgba(0, 140, 255, 0.4);
 }
 
 

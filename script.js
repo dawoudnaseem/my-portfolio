@@ -84,11 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const isClickableTag = clickableTags.includes(tag);
     const isClickableProjectCard = e.target.closest(".project-card");
 
-    if (isClickableTag || e.target.onclick || isClickableProjectCard) {
-      cursorText.textContent = "CLICK HERE • CLICK HERE •";
+    if (isClickableProjectCard) {
+      cursorText.textContent = "🗿 Click If You're Sigma 🗿";
       cursorWrapper.classList.add("hovering");
     } else {
-      cursorText.textContent = "SCROLL DOWN • SCROLL DOWN •";
+      cursorText.textContent = "S C R O L L ✯ S C R O L L ✯ ";
       cursorWrapper.classList.remove("hovering");
     }
   });
