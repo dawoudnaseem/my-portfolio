@@ -452,7 +452,8 @@ footer p {
 }
 
 .details-container:hover {
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.35);
+
   transform: scale(1.05);
   cursor: pointer;
 }
