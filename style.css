@@ -552,7 +552,7 @@ footer p {
 }
 
 /* AUTOSHOW ANIMATION (Appear and Dissapear WHen Scrolling */
-/* Video tutorial: https://www.youtube.com/watch?v=pFtxR-O78sY */
+/* Video tutorial: https://www.youtube.com/watch?v=pFtxR-O78sY (pervious version since view() is experimental*/
 
 .autoshow {
   opacity: 0;
@@ -561,7 +561,7 @@ footer p {
 }
 
 .autoshow.visible {
-  animation: autoShowAnimation 0.8s ease-out forwards;
+  animation: autoShowAnimation 0.5s ease-out forwards;
 }
 
 
