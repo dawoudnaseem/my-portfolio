@@ -555,11 +555,15 @@ footer p {
 /* Video tutorial: https://www.youtube.com/watch?v=pFtxR-O78sY */
 
 .autoshow {
-
-  animation: autoShowAnimation both;
-  animation-timeline: view(70% 5%);
-
+  opacity: 0;
+  transform: translateY(200px) scale(0.3);
+  transition: all 0.6s ease-out;
 }
+
+.autoshow.visible {
+  animation: autoShowAnimation 0.8s ease-out forwards;
+}
+
 
 @keyframes autoShowAnimation {
 
