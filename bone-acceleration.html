@@ -1,77 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bone Acceleration – McGill Rocket Team</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Dawoud Naseem</div>
-      <div>
-        <a href="./index.html">About</a></li>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-        <div class="logo">Dawoud Naseem</div>
-        <div class="hamburger-menu">
-          <div class="hamburger-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="menu-links">
-            <li><a href="./index.html" onclick="toggleMenu()">Home</a></li>
-            <li><a href="./index.html#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="./index.html#projects" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="./index.html#contact" onclick="toggleMenu()">Contact</a></li>
-          </div>
-        </div>
-      </nav>
-      
-
-    <section id="about">
-        <p class="section__text__p1 autoshow fade-up">Project Case Study</p>
-        <h1 class="title autoshow fade-up">Payload Bone Acceleration</h1>
-        <div class="section-container">
-            <div class="text-container autoshow fade-up">
-                <p>
-                <strong>Overview:</strong> This interdisciplinary research project was developed in collaboration with McGill’s Biology Department and fellow engineering students to investigate how surgically repaired bones — specifically those connected with screws — respond to high-frequency vibrations during rocket launches.
-                </p>
-                <p>
-                <strong>Role & Responsibilities:</strong> As part of the hardware division, I worked on PCB design, soldering, and testing. Our system used an IEPE accelerometer and STM32 microcontroller to gather and store acceleration data in an SD card. I also assisted with integrating a Peltier Cooler system to regulate temperature for testing bone stability.
-                </p>
-                <p>
-                <strong>Technical Tools:</strong> Altium Designer, LTSpice, STM32, IEPE Accelerometer, SD card logging, soldering techniques, and component sourcing from DigiKey.
-                </p>
-                <p>
-                <strong>Design Process:</strong> Focused on multi-layer PCB layout and trace routing, resolving component placement issues and managing signal paths using vias and polygon pours for electrical integrity.
-                </p>
-                <p>
-                <strong>Status:</strong> The first PCB iteration is printed and currently undergoing testing. If successful, final assembly and system integration will follow.
-                </p>
-                <p>
-                <strong>Reflection:</strong> This project helped me experience the full design cycle — from schematics to soldering to debugging — and strengthened my ability to collaborate across disciplines, especially with biology and mechanical engineering teammates.
-                </p>
-            </div> 
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payload Bone Acceleration – Case Study</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #222;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .hero {
+      margin-bottom: 4rem;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #555;
+    }
+    .grid-info {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+      gap: 2rem;
+    }
+    .grid-item {
+      flex: 1 1 200px;
+      border-top: 2px solid #eee;
+      padding-top: 1rem;
+    }
+    .section {
+      margin: 6rem 0;
+      position: relative;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .section-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: black;
+      border-radius: 50%;
+      position: absolute;
+      left: -25px;
+      top: 5px;
+    }
+    .section p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Payload Bone Acceleration</h1>
+      <p>
+        A collaborative project exploring the effects of high-frequency rocket launch vibrations on surgically repaired bones. Conducted with McGill’s Biology Department and engineering peers.
+      </p>
     </section>
 
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2025 Dawoud Naseem. All Rights Reserved.</p>
-    </footer>
+    <!-- At-a-Glance Info -->
+    <section class="grid-info">
+      <div class="grid-item"><strong>Team</strong><br />McGill Rocket Team</div>
+      <div class="grid-item"><strong>Role</strong><br />Hardware Engineer</div>
+      <div class="grid-item"><strong>Timeline</strong><br />Ongoing – 2025</div>
+      <div class="grid-item"><strong>Tools</strong><br />Altium, LTSpice, STM32, Soldering</div>
+    </section>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- Sections -->
+    <section class="section">
+      <h2 class="section-title">Overview</h2>
+      <p>
+        This interdisciplinary research project investigates how surgically repaired bones — specifically those reinforced with screws — behave under rocket launch conditions. We aim to assess whether astronauts who have undergone bone surgery would experience structural issues in space missions.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Role & Contribution</h2>
+      <p>
+        I contributed to the hardware division by designing, assembling, and testing PCBs to collect vibration data using IEPE accelerometers. We processed and stored voltage data using STM32 microcontrollers with SD card logging.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Thermal Integration</h2>
+      <p>
+        A parallel aspect of the project involved regulating bone temperature using Peltier Coolers. I helped analyze cooling effectiveness and contributed to the circuit design required to integrate thermal regulation into our existing PCB system.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Technical Challenges</h2>
+      <p>
+        PCB trace routing was demanding due to space constraints and signal path integrity. I assisted in repositioning components, layering polygon pours, and troubleshooting via connections to achieve a reliable layout.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Reflection</h2>
+      <p>
+        This project taught me the full electrical hardware workflow — from schematic capture to soldering and testing — and reinforced the importance of collaboration across disciplines in solving biomedical and aerospace problems.
+      </p>
+    </section>
+  </main>
+</body>
 </html>
